@@ -17,6 +17,8 @@
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
     
+    <script src="js/cookie.js"></script>
+    
     <!--JVectorMap source files -->
     <link rel="stylesheet" href="css/jquery-jvectormap-2.0.1.css" type="text/css" media="screen"/>
     <script src="js/jquery-2.1.1.min.js"></script>
@@ -32,105 +34,34 @@
   </head>
 
   <body>
-
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <img src="img/logo.png" />
-              <!--<nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>!-->
-            </div>
-          </div>
-
-          <div class="inner2 cover">
-            <h1 class="cover-heading">Select a location</h1>
-            <div id="us_aea_en" class="map"></div>
-           <script>
-              $(function(){
-                console.log("trying my best.");
-                
-                var plants = [
-                  {name: 'Huntsville, AL', coords: [34.703225, -86.59317899999996], status: 'open', offsets: [0, 2]},
-                  {name: 'Dallas, TX', coords: [32.939127, -96.738263], status: 'open', offsets: [0, 2]},
-                  {name: 'Orlando, FL', coords: [28.59301,-81.356199], status: 'open', offsets: [0, 2]},
-                  {name: 'Howell, MI', coords: [42.5958273,-83.9335305], status: 'open', offsets: [0, 2]}
-                  //
-                ];
-                
-                $('#us_aea_en').vectorMap({
-                  map: 'us_aea_en',
-                  markers: plants.map(function(h){ return {name: h.name, latLng: h.coords} }),
-                  labels: {
-                    markers: {
-                      render: function(index){
-                        return plants[index].name;
-                      },
-                      offsets: function(index){
-                        var offset = plants[index]['offsets'] || [0, 0];
-            
-                        return [offset[0] - 7, offset[1] + 3];
-                      }
-                    }
-                  },
-                  series: {
-                    markers: [{
-                      attribute: 'image',
-                      scale: {
-                        'open': 'img/marker.png',
-                      },
-                      values: plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {}),
-                      /*legend: {
-                        horizontal: true,
-                        title: 'Warehouse status',
-                        labelRender: function(v){
-                          return {
-                            open: 'Open',
-                          }[v];
-                        }
-                      }*/
-                    }]
-                  },
-                  zoomButtons: false,
-                  backgroundColor: 'transparent',
-                  regionsSelectable: false,
-                  regionStyle: {
-                    initial: {
-                      fill: '#F6C94F'
-                    },
-                    hover: {
-                      "fill-opacity": 1.0,
-                      cursor: 'default'
-                    }
-                  },
-                  onRegionLabelShow: function(e, el, code){
-                    e.preventDefault();
-                  }
-                });
-              });
-            </script>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p></p>
-            </div>
-          </div>
-
+    
+    <div class="container">
+      <img src="img/logo.png" />
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div id="question">
+          <p>Have you shopped with us before?</p>
+          <button value="yes">Yes</button>
+          <button value="no">No</button>
         </div>
-
+        <div id="selection">
+          <p>Select the warehouse closest to you, or select your state to be automatically redirected to the nearest warehouse. This selection will be remembered.</p>
+          <div id="map-container">
+            <div id="us_aea_en" class="map"></div>
+            <script src="js/map.js"></script>
+          </div>
+          <div class="dropdown">
+            <span>
+              Or select a warehouse
+            </span>
+            <select>
+              <option>Huntsville, AL</option>
+            </select>
+          </div>
+        </div>
       </div>
 
-    </div>
+    </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
