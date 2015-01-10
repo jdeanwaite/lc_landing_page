@@ -31,6 +31,6 @@ function getCookie(c_name) {
     case "US-MI": url = "http://www.michigan.lcdcycle.com"; break;
   }
   
-  //if(url != null)
-  //  window.location.href = url;
+  if(url != null)
+    window.location.href = url;
 })();
