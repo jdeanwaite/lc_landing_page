@@ -140,6 +140,9 @@ $(function(){
   function redirect(state){
     var index = -1;
     
+    if(!isValidState(state))
+      return;
+      
     setCookie("warehouse_selection", state, 365);
     
     //check for al warehouse states
@@ -190,6 +193,11 @@ $(function(){
     return indexOf.call(this, needle);
   };
   
+  function isValidState(state){
+    return (state=="US-AL" || state=="US-FL" ||
+       state=="US-TX" || state=="US-MI");
+  }
+  
   /*
    * Show/hide controls for the selection div.
    */
@@ -206,5 +214,11 @@ $(function(){
         $('#selection').show();
         break;
     }
+  });
+  
+  $('#warehouse_shortcut').on('change', function (e) {
+    var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
+    redirect(valueSelected);
   });
 });
