@@ -212,6 +212,8 @@ $(function(){
       case "no": 
         $('#question').hide();
         $('#selection').show();
+        var mapObj = $('#us_aea_en').vectorMap('get', 'mapObject');
+        setTimeout( function() { mapObj.updateSize();}, 200);
         break;
     }
   });
