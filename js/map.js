@@ -222,6 +222,10 @@ $(function(){
     redirect(valueSelected);
   });
   
-  var mapObj = $('#us_aea_en').vectorMap('get', 'mapObject');
-  mapObj.updateSize();
+  window.onresize = function()
+  {
+    console.log("resizing");
+    var mapObj = $('#us_aea_en').vectorMap('get', 'mapObject');
+    setTimeout( function() { mapObj.updateSize();}, 200);
+  }
 });
