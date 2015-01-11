@@ -221,4 +221,7 @@ $(function(){
     var valueSelected = this.value;
     redirect(valueSelected);
   });
+  
+  var mapObj = $('#us_aea_en').vectorMap('get', 'mapObject');
+  mapObj.updateSize();
 });
