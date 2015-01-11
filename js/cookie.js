@@ -25,7 +25,7 @@ function getCookie(c_name) {
   
   var url;
   switch(ws){
-    case "US-AL": url = "http://www.lcdcycle.com"; break;
+    case "US-AL": url = "http://www.huntsville.lcdcycle.com"; break;
     case "US-TX": url = "http://www.dallas.lcdcycle.com"; break;
     case "US-FL": url = "http://www.orlando.lcdcycle.com"; break;
     case "US-MI": url = "http://www.michigan.lcdcycle.com"; break;

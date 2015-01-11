@@ -2,7 +2,7 @@ $(function(){
   /* 
    * URLs for the different warehouses
    */
-  var url_al = "http://www.lcdcycle.com";
+  var url_al = "http://www.huntsville.lcdcycle.com";
   var url_tx = "http://www.dallas.lcdcycle.com";
   var url_fl = "http://www.orlando.lcdcycle.com";
   var url_mi = "http://www.michigan.lcdcycle.com";
