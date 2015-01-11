@@ -140,32 +140,31 @@ $(function(){
   function redirect(state){
     var index = -1;
     
-    if(!isValidState(state))
-      return;
-      
-    setCookie("warehouse_selection", state, 365);
-    
     //check for al warehouse states
     index = indexOf.call(states_al, state);
     if(index > -1){
+      setCookie("warehouse_selection", "US-AL", 365);
       window.location.href = url_al;
     }
     
     //check for tx warehouse states
     index = indexOf.call(states_tx, state);
     if(index > -1){
+      setCookie("warehouse_selection", "US-TX", 365);
       window.location.href = url_tx;
     }
     
     //check for fl warehouse states
     index = indexOf.call(states_fl, state);
     if(index > -1){
+      setCookie("warehouse_selection", "US-FL", 365);
       window.location.href = url_fl;
     }
     
     //check for mi warehouse states
     index = indexOf.call(states_mi, state);
     if(index > -1){
+      setCookie("warehouse_selection", "US-MI", 365);
       window.location.href = url_mi;
     }
   }
